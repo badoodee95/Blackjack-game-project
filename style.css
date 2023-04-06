@@ -1,0 +1,52 @@
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+.div-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.div-buttons button {
+    margin: 10px
+}
+
+.dealer-hand {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.player-hand {
+    display: flex;
+    justify-content: center;
+}
+
+.card-1-dealer, 
+.card-2-dealer,
+.card-3-dealer,
+.card-4-dealer,
+.card-5-dealer,
+.card-6-dealer {
+    display: flex;
+    flex-direction: row;
+    margin: 0px 0px 100px 0px;
+}
+
+.card-1-player,
+.card-2-player,
+.card-3-player,
+.card-4-player,
+.card-5-player,
+.card-6-player {
+    display: flex;
+    flex-direction: row;
+    margin: 100px 0px 0px 0px;
+}
+
+
+
+
+
+
