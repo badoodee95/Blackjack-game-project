@@ -2,7 +2,10 @@ h1 {
     display: flex;
     justify-content: center;
 }
-
+h2 {
+    display: flex;
+    justify-content: center;
+}
 .div-buttons {
     display: flex;
     justify-content: center;
@@ -31,7 +34,7 @@ h1 {
 .card-6-dealer {
     display: flex;
     flex-direction: row;
-    margin: 0px 0px 100px 0px;
+    margin: 0px 0px 50px 0px;
 }
 
 .card-1-player,
@@ -42,9 +45,43 @@ h1 {
 .card-6-player {
     display: flex;
     flex-direction: row;
-    margin: 100px 0px 0px 0px;
+    margin: 50px 0px 0px 0px;
 }
 
+#play {
+    width: 100px;
+    height: 50px;   
+    margin: 5px;
+}
+
+#restart {
+    width: 100px;
+    height: 50px;
+    margin: 5px;
+}
+
+#hit {
+    width: 100px;
+    height: 50px;   
+    margin: 5px;
+}
+
+#stand {
+    width: 100px;
+    height: 50px;  
+    margin: 5px; 
+}
+
+#split {
+    width: 100px;
+    height: 50px;
+    margin: 5px;   
+}
+
+body {
+    background-size: cover;
+    background-position: center;
+}
 
 
 

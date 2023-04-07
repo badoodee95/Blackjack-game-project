@@ -7,35 +7,30 @@
     <link rel="stylesheet" href="style.css">
     <title>Blackjack</title>
 </head>
-<body>
+<body background="card-images/casino_background.jpeg">  
 <section class="game">
     <h1>Dealer's Hand</h1>
+        <h2>Dealer:</h2>
     <div class="dealer-hand">
-            <img class="card-1-dealer" src="card-images/10_of_clubs.svg" alt="">
-            <img class="card-2-dealer" src="card-images/card-back-red.svg" height="325px" alt="">
-            <img class="card-3-dealer" src="" alt="">
-            <img class="card-4-dealer" src="" alt="">
-            <img class="card-5-dealer" src="" alt="">
-            <img class="card-6-dealer" src="" alt="">
+            <img class="dealer-hand" id="card-1-dealer" src="card-images/card-back-red.svg" alt="">
+            <img class="dealer-hand" id="card-2-dealer" src="card-images/card-back-red.svg" alt="">
     </div>
+    <p class="results-text"></p>
     <div class="player-hand">
-            <img class="card-1-player" src="card-images/ace_of_clubs.svg" alt="">
-            <img class="card-2-player" src="card-images/queen_of_hearts2.svg" alt="">
-            <img class="card-3-player" src="" alt="">
-            <img class="card-4-player" src="" alt="">
-            <img class="card-5-player" src="" alt="">
-            <img class="card-6-player" src="" alt="">
+            <img class="player-hand" id="card-1-player" src="card-images/card-back-red.svg" alt="">
+            <img class="player-hand" id="card-2-player" src="card-images/card-back-red.svg" alt="">
     </div>
+        <h2>Player:</h2>
     <h1>Player's Hand</h1>
 </section>
 <section class="buttons">
     <div class="div-buttons">    
-        <button>Play</button>
-        <button>Hit</Button>
-        <button>Stand</button>
-        <button>Split</button>
+        <button id="play">Play</button>
+        <button id="hit">Hit</Button>
+        <button id="stand">Stand</button>
+        <button id="split">Split</button>
     </div>
-</section>  
+</section>
 <script src="index.js"></script>
 </body>
 </html>
