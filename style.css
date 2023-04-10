@@ -1,6 +1,7 @@
 h1 {
     display: flex;
     justify-content: center;
+    color: white;
 }
 h2 {
     display: flex;
@@ -15,36 +16,29 @@ h2 {
     margin: 10px
 }
 
+.dealer-side {
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: center;
+    margin: 0px 0px 50px 0px;
+}
+
 .dealer-hand {
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     justify-content: center;
+    margin: 0px 0px 50px 0px;
+}
+
+.player-side {
+    display: flex;
+    justify-content: center;
+    
 }
 
 .player-hand {
     display: flex;
     justify-content: center;
-}
-
-.card-1-dealer, 
-.card-2-dealer,
-.card-3-dealer,
-.card-4-dealer,
-.card-5-dealer,
-.card-6-dealer {
-    display: flex;
-    flex-direction: row;
-    margin: 0px 0px 50px 0px;
-}
-
-.card-1-player,
-.card-2-player,
-.card-3-player,
-.card-4-player,
-.card-5-player,
-.card-6-player {
-    display: flex;
-    flex-direction: row;
     margin: 50px 0px 0px 0px;
 }
 
@@ -83,7 +77,27 @@ body {
     background-position: center;
 }
 
+.results-text {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 3rem;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: -4px 4px #ef3550,
+               -8px 8px #f48fb1,
+               -12px 12px #7e57c2,
+               -16px 16px #2196f3,
+               -20px 20px #26c6da,
+               -24px 24px #43a047,
+               -28px 28px #eeff41,
+               -32px 32px #f9a825,
+               -36px 36px #ff5722; 
+}
 
+.score {
+    color: white;
+}
 
 
 
