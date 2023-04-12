@@ -267,6 +267,7 @@
     }
 
     function checkAceTotalPlayer() {
+        if (playerTotal !== 21) {
         for (let i = 0; i < playerHandArray.length; i++) {
             if (playerHandArray[i] === 11) {
                 playerHandArray[i] = 1;
@@ -281,7 +282,7 @@
                 return;
             }
         }
-        
+    }
     };
 
     function checkAceTotalDealer() {
