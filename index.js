@@ -6,12 +6,14 @@
     let dealerHand = document.querySelectorAll('.dealer-hand');
     let dealerSide = document.querySelector('.dealer-side');
     let dealerScore = document.querySelector('#dealer-score');
+    let dealerHandArray = [];
     // Declaring all the variables for the player's cards
     let card1Player = document.querySelector('#card-1-player');
     let card2Player = document.querySelector('#card-2-player');
     let playerHand = document.querySelectorAll('.player-hand');
     let playerSide = document.querySelector('.player-side');
     let playerScore = document.querySelector('#player-score');
+    let playerHandArray = [];
     let newFirstCardPlayer;
     let newSecondCardPlayer;
     // Declaring the totals
@@ -23,7 +25,6 @@
     let deck;
     // Declaring the results text to display on-screen
     let resultsText = document.querySelector('.results-text');
-    resultsText.textContent = 'TESTING';
     // Declaring the hidden card for the dealer
     let hidden;
 
@@ -45,7 +46,6 @@
         return deck;
     };
     deck = buildDeck();
-    console.log(deck);
 
     // Drawing a random card to add onto the hand ===============================================
     function drawCard() {
@@ -54,7 +54,6 @@
         let card = document.createElement('img');
         card.setAttribute('src', "card-images/" + deck[randomCard] + ".svg");
         card = deck[randomCard];
-        deck.splice(card, 1); // Used to remove the card drawn from the deck/array
         return card;
     }
     // =============================== Assigning a value to each card =========================== //
@@ -70,7 +69,6 @@
         return parseInt(cardValue);
         
     };
-    console.log(getValue(deck[19]));
 
 
     // ================================ KEEPING TRACK OF THE TOTALS ============================ //
@@ -98,14 +96,16 @@
         resultsText = document.querySelector('.results-text');
         resultsText.textContent = 'GAME BEGINS'
         newFirstCardPlayer = drawCard();
-        // console.log('new first card', newFirstCardPlayer);
         card1Player.setAttribute('src', "card-images/" + newFirstCardPlayer + ".svg");
+        playerHandArray.push(getValue(newFirstCardPlayer));
         newSecondCardPlayer = drawCard();
-        // console.log('new second card', newSecondCardPlayer);
         card2Player.setAttribute('src', "card-images/" + newSecondCardPlayer + ".svg");
+        playerHandArray.push(getValue(newSecondCardPlayer));
+        console.log('player hand array', playerHandArray);
         let newFirstCardDealer = drawCard();
         card1Dealer.setAttribute('src', "card-images/" + newFirstCardDealer + ".svg");
         dealerTotal += getValue(newFirstCardDealer);
+        dealerHandArray.push(getValue(newFirstCardDealer));
         card2Dealer.style.height = "325px";
         hidden = drawCard();
         addHiddenCardtoTotal(); 
@@ -114,10 +114,10 @@
         console.log('dealer total', dealerTotal)
         playButton.replaceWith(restartButton);
         playerTotal += getValue(newFirstCardPlayer);
-        checkAceTotalPlayer();
         playerTotal += getValue(newSecondCardPlayer);
         playerScore.textContent = "Player: " + playerTotal;
         checkPlayerInitialTotal();
+        checkAceTotalPlayer();
         // console.log("Players first card", newFirstCardPlayer);
         console.log('playerTotal', playerTotal);
         blackjackPush();
@@ -165,6 +165,8 @@
         resultsText.textContent = 'RESTARTED GAME!';
         hitButton.removeEventListener('click', buttonHit);
         standButton.removeEventListener('click', buttonStand);
+        playerHandArray = [];
+        dealerHandArray = [];
         
     })
 
@@ -176,13 +178,14 @@
         newCardImg.setAttribute('class', 'player-hand');
         newCardImg.setAttribute('src', "card-images/" + newCard + ".svg");
         playerSide.append(newCardImg);
-        checkAceTotalPlayer(newCard);
+        playerHandArray.push(getValue(newCard));
+        console.log('new player hand array', playerHandArray);
         playerTotal += getValue(newCard);
         playerScore.textContent = "Player: " + playerTotal;
-        // console.log("player's hand", playerHand, playerHand.length);
         playerHand = document.querySelectorAll('.player-hand');
         playerSide = document.querySelector('.player-side');
         bust();
+        forceStand();
     }
 
     hitButton.addEventListener('click', buttonHit);
@@ -201,12 +204,8 @@
 
     standButton.addEventListener('click', buttonStand);
 
-
-
-    // ======================================== SPLIT BUTTON =========================== //
-
-
     // ======================================== FUNCTION ================================= //
+
     function resultMessage() {
         resultsText = document.querySelector('.results-text');
         if (playerTotal > 21) {
@@ -225,6 +224,7 @@
     function addHiddenCardtoTotal() {
         card2Dealer = document.querySelector('#card-2-dealer');
         card2Dealer = getValue(hidden);
+        dealerHandArray.push(getValue(hidden));
         dealerTotal += card2Dealer;
         dealerScore = document.querySelector('#dealer-score');
         dealerScore.textContent = 'Dealer: ???';
@@ -240,12 +240,18 @@
 
     }
     
-    function bust() {    
-        if (playerTotal > 21 || dealerTotal > 21) {
+    function bust() {
+        if (playerTotal > 21) {
+            checkAceTotalPlayer();
+        }
+        if (playerTotal > 21) {
             hitButton.removeEventListener('click', buttonHit);
             standButton.removeEventListener('click', buttonStand);
             resultMessage();
-            }
+        }
+        if (dealerTotal > 21) {
+            checkAceTotalDealer();
+        }
         };
     
     
@@ -260,22 +266,42 @@
         } 
     }
 
-    function checkAceTotalPlayer(Card) {
-        if (newSecondCardPlayer.split('_')[0] === 'ace' && newSecondCardPlayer.split('_')[0] === 'ace') {
-            playerTotal += 
-            playerScore.textContent = 'Player: ' + playerTotal;
+    function checkAceTotalPlayer() {
+        for (let i = 0; i < playerHandArray.length; i++) {
+            if (playerHandArray[i] === 11) {
+                playerHandArray[i] = 1;
+                let newTotal = 0;
+                for (let i = 0; i < playerHandArray.length; i++) {
+                    newTotal += playerHandArray[i];
+                }
+                playerTotal = newTotal;
+                playerScore = document.querySelector('#player-score');
+                playerScore.textContent = 'Player: ' + playerTotal;
+                console.log('player hand array', playerHandArray)
+                return;
+            }
         }
-        if (newFirstCardPlayer + newSecondCardPlayer + Card > 21) {
-            playerTotal += 1;
-        }
-    };
-
-    function chechAceTotalDealer() {
         
     };
 
+    function checkAceTotalDealer() {
+        for (let i = 0; i < dealerHandArray.length; i++) {
+            if (dealerHandArray[i] === 11) {
+                dealerHandArray[i] = 1;
+                let newTotal = 0;
+                for (let i = 0; i < dealerHandArray.length; i++) {
+                    newTotal += dealerHandArray[i];
+                }
+                dealerTotal = newTotal;
+                dealerScore = document.querySelector('#dealer-score');
+                dealerScore.textContent = 'Dealer: ' + dealerTotal;
+                console.log('dealer hand array', dealerHandArray)
+                return;
+            }
+        }
+    };
+
     function dealerAI() {
-        dealerTotal;
         while (dealerTotal < 17) {
             buttonHitDealer();
         }
@@ -287,6 +313,7 @@
         newCardImg.setAttribute('class', 'dealer-hand');
         newCardImg.setAttribute('src', "card-images/" + newCard + ".svg");
         dealerSide.append(newCardImg);
+        dealerHandArray.push(getValue(newCard));
         dealerTotal += getValue(newCard);
         dealerScore.textContent = "Dealer: " + dealerTotal;
         // console.log("player's hand", playerHand, playerHand.length);
@@ -301,10 +328,14 @@
             standButton.removeEventListener('click', buttonStand);
             resultsText.querySelector('.results-text');
             resultsText.textContent = 'BOTH PLAYER AND DEALER HAS BLACKJACK! \n PUSH.'
-        }  
+        } 
     }
 
-
+    function forceStand() {
+        if (playerTotal === 21) {
+            buttonStand();
+        }
+    }
 
 
     hitButton.removeEventListener('click', buttonHit);
