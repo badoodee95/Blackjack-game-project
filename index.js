@@ -70,24 +70,6 @@
         
     };
 
-
-    // ================================ KEEPING TRACK OF THE TOTALS ============================ //
-    function keepTrack() {
-        // playerTotal = getValue(card1Player) + getValue(card2Player);
-        let score = document.querySelector('#player-score');
-        playerHand = document.querySelectorAll('.player-hand');
-        playerSide = document.querySelector('.player-side');
-        for (let i = 0; i < playerSide.length; i++) {
-            
-            let playerSideArray = [...playerSide];
-            console.log('hand array', playerSideArray);
-        }
-        score.textContent = "Player: " + playerTotal;
-    }
-    
-
-
-
     // ======================================= PLAY BUTTON ============================== //
     let playButton = document.querySelector('#play');
     playButton.addEventListener('click', function() {
@@ -117,9 +99,10 @@
         playerTotal += getValue(newSecondCardPlayer);
         playerScore.textContent = "Player: " + playerTotal;
         checkPlayerInitialTotal();
+        // if (newFirstCardPlayer.split('_')[0] === 'ace' || newSecondCardPlayer.split('_')[0]) {
+        //     checkAceTotalPlayer();
+        // }
         checkAceTotalPlayer();
-        // console.log("Players first card", newFirstCardPlayer);
-        console.log('playerTotal', playerTotal);
         blackjackPush();
         
     });
@@ -267,23 +250,24 @@
     }
 
     function checkAceTotalPlayer() {
-        if (playerTotal !== 21) {
-        for (let i = 0; i < playerHandArray.length; i++) {
-            if (playerHandArray[i] === 11) {
-                playerHandArray[i] = 1;
-                let newTotal = 0;
-                for (let i = 0; i < playerHandArray.length; i++) {
-                    newTotal += playerHandArray[i];
+        if (playerTotal > 21) {
+            for (let i = 0; i < playerHandArray.length; i++) {
+                if (playerHandArray[i] === 11) {
+                    playerHandArray[i] = 1;
+                    let newTotal = 0;
+                    for (let i = 0; i < playerHandArray.length; i++) {
+                        newTotal += playerHandArray[i];
+                    }
+                    playerTotal = newTotal;
+                    playerScore = document.querySelector('#player-score');
+                    playerScore.textContent = 'Player: ' + playerTotal;
+                    console.log('player hand array', playerHandArray)
+                    return;
                 }
-                playerTotal = newTotal;
-                playerScore = document.querySelector('#player-score');
-                playerScore.textContent = 'Player: ' + playerTotal;
-                console.log('player hand array', playerHandArray)
-                return;
             }
         }
     }
-    };
+
 
     function checkAceTotalDealer() {
         for (let i = 0; i < dealerHandArray.length; i++) {

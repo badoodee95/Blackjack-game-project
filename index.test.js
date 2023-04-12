@@ -9,7 +9,7 @@ describe('playerTotal', function() {
         playerTotal += newCard;
         expect(typeof(playerTotal)).toBe('number'); 
     });
-    it ('playerTotal should return the correct value (WITHOUT changing the value of the ace) ', function() {
+    it ('playerTotal should return the correct value (WITHOUT changing the value of the ace)', function() {
         let playerTotal = 0;
         let card1Player = getValue('ace_of_spades');
         playerTotal += card1Player;
@@ -21,7 +21,25 @@ describe('playerTotal', function() {
     });
 });
 
-describe('checkAcePlayerTotal()', function() {
-    it ('playerTotal should return the correct value (WITH changing the value of the ace) ', function() {
+describe('dealerTotal', function() {
+    it('should return a number ', function() {
+        let dealerTotal = 0;
+        let card1Dealer = getValue('ace_of_spades');
+        dealerTotal += card1Dealer;
+        let card2Dealer = getValue('ace_of_hearts');
+        dealerTotal += card2Dealer;
+        let newCard = getValue('king_of_diamonds');
+        dealerTotal += newCard;
+        expect(typeof(dealerTotal)).toBe('number'); 
+    });
+    it ('dealerTotal should return the correct value (WITHOUT changing the value of the ace)', function() {
+        let dealerTotal = 0;
+        let card1Dealer = getValue('ace_of_spades');
+        dealerTotal += card1Dealer;
+        let card2Dealer = getValue('ace_of_hearts');
+        dealerTotal += card2Dealer;
+        let newCard = getValue('king_of_diamonds');
+        dealerTotal += newCard;
+        expect(dealerTotal).toBe(32); 
     });
 });

@@ -1,9 +1,13 @@
-h1 {
+    h1 {
     display: flex;
     justify-content: center;
-    color: white;
+    color: red;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: -4px 4px black,
+                 -8px 8px black;
 }
 h2 {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     justify-content: center;
 }
@@ -20,14 +24,14 @@ h2 {
     display: flex;
     /* flex-direction: row; */
     justify-content: center;
-    margin: 0px 0px 50px 0px;
+    margin: 0px 0px 30px 0px;
 }
 
 .dealer-hand {
     display: flex;
     /* flex-direction: row; */
     justify-content: center;
-    margin: 0px 0px 50px 0px;
+    margin: 0px 0px 30px 0px;
 }
 
 .player-side {
@@ -39,37 +43,51 @@ h2 {
 .player-hand {
     display: flex;
     justify-content: center;
-    margin: 50px 0px 0px 0px;
+    margin: 30px 0px 0px 0px;
 }
 
 #play {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: green;
+    background-color: silver;
+    border-radius: 25px;
     width: 100px;
     height: 50px;   
     margin: 5px;
+    font-size: 90%;
 }
 
 #restart {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: green;
+    background-color: silver;
+    border-radius: 25px;
     width: 100px;
     height: 50px;
     margin: 5px;
+    font-size: 90%;
 }
 
 #hit {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: yellow;
+    background-color: silver;
+    border-radius: 25px;
     width: 100px;
     height: 50px;   
     margin: 5px;
+    font-size: 90%;
 }
 
 #stand {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: red;
+    background-color: silver;
+    border-radius: 25px;
     width: 100px;
     height: 50px;  
     margin: 5px; 
-}
-
-#split {
-    width: 100px;
-    height: 50px;
-    margin: 5px;   
+    font-size: 90%;
 }
 
 body {
@@ -83,20 +101,24 @@ body {
     font-size: 3rem;
     letter-spacing: 0.15rem;
     text-transform: uppercase;
-    color: #fff;
-    text-shadow: -4px 4px #ef3550,
-               -8px 8px #f48fb1,
-               -12px 12px #7e57c2,
-               -16px 16px #2196f3,
-               -20px 20px #26c6da,
-               -24px 24px #43a047,
-               -28px 28px #eeff41,
-               -32px 32px #f9a825,
-               -36px 36px #ff5722; 
+    color: gold;
+    text-shadow: -4px 4px black,
+               -8px 8px black;
 }
 
 .score {
-    color: white;
+    color: red;
+    text-shadow: -4px 4px black,
+                 -8px 8px black;
+}
+
+#player-score {
+    color: aqua;
+
+}
+
+.player-text {
+    color: aqua;
 }
 
 
