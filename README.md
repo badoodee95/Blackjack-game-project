@@ -75,6 +75,6 @@ This function checkAceTotalPlayer(), will examine the player's hand any time a c
 
 
 
-## Stretch Goals
+## Future Possible Goals
 Eventually I would like to make a split button that will make it so that if the player has 2 cards of the same value, pressing said button will allow the player to separate the cards into their own individual groups that will allow the player to keep track of 2 different totals.
 Furthermore, adding a setinterval for the dealer to draw their card would help to easily grasp what happens after the player stands.
