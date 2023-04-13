@@ -23,9 +23,10 @@ Here is my outline on my project. It's a very simple step-by-step process that c
 
 
 
-## Description
-This blackjack game consists of all 52 cards (not including joker) and each individual card may be drawn again in the same round. This is due to how irl casinos will use multiple decks to make it harder for people to count the cards left and will have less of an advantage in doing so (while not illegal, some casinos have it as a rule in their own place).
+# Description
+This blackjack game consists of all 52 cards (not including joker) and each individual card may be drawn again in the same round. This is due to how irl casinos will use multiple decks to make it harder for people to count the cards left and will have less of an advantage in doing so (while not illegal, some casinos have it as a rule in their own place). 
 
+## How to Play
 There are 3 buttons, Play, Hit, and Stand. The play button will start the game of blackjack and allow the players to interact with the other 2 buttons while also changing the play button to a restart button that you can press at any time during the game.  Pressing Hit will draw a card into your hand and add to your total. Stand will basically end your turn and pass to the dealer's. Once the game finished and the winner is determined, the player can press the restart button play again.
 
 # Code Snippets

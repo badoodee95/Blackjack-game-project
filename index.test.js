@@ -43,3 +43,17 @@ describe('dealerTotal', function() {
         expect(dealerTotal).toBe(32); 
     });
 });
+
+describe('buildDeck()', function() {
+    it('it should return a length of 52 cards when creating a deck', function() {
+        let result = buildDeck();
+        expect(result.length).toBe(52);
+    });
+});
+
+describe('getValue()', function() {
+    it('should always return a number', function() {
+        let result = getValue('900_of_spades');
+        expect(typeof(result)).toBe('number');
+    });
+});

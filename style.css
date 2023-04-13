@@ -48,8 +48,8 @@ h2 {
 
 #play {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    color: green;
-    background-color: silver;
+    color: whitesmoke;
+    background-color: green;
     border-radius: 25px;
     width: 100px;
     height: 50px;   
@@ -59,8 +59,8 @@ h2 {
 
 #restart {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: green;
-    background-color: silver;
+    color: whitesmoke;
+    background-color: green;
     border-radius: 25px;
     width: 100px;
     height: 50px;
@@ -70,8 +70,8 @@ h2 {
 
 #hit {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    color: yellow;
-    background-color: silver;
+    color: gray;
+    background-color: yellow;
     border-radius: 25px;
     width: 100px;
     height: 50px;   
@@ -81,8 +81,8 @@ h2 {
 
 #stand {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    color: red;
-    background-color: silver;
+    color: whitesmoke;
+    background-color: red;
     border-radius: 25px;
     width: 100px;
     height: 50px;  

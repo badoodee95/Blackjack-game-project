@@ -83,7 +83,6 @@
         newSecondCardPlayer = drawCard();
         card2Player.setAttribute('src', "card-images/" + newSecondCardPlayer + ".svg");
         playerHandArray.push(getValue(newSecondCardPlayer));
-        console.log('player hand array', playerHandArray);
         let newFirstCardDealer = drawCard();
         card1Dealer.setAttribute('src', "card-images/" + newFirstCardDealer + ".svg");
         dealerTotal += getValue(newFirstCardDealer);
@@ -92,8 +91,6 @@
         hidden = drawCard();
         addHiddenCardtoTotal(); 
         card2Dealer = newSecondCardDealer;
-        console.log('dealer 2nd card', card2Dealer)
-        console.log('dealer total', dealerTotal)
         playButton.replaceWith(restartButton);
         playerTotal += getValue(newFirstCardPlayer);
         playerTotal += getValue(newSecondCardPlayer);
@@ -118,17 +115,14 @@
         card2Dealer.setAttribute('src', "card-images/card-back-red.svg");
         playerHand = document.querySelectorAll('.player-hand');
         playerSide = document.querySelector('.player-side');
-        console.log("player's hand", playerHand, playerHand.length);
         while(playerHand.length > 2) {
             let lastChild = playerSide.lastChild;
-            console.log('last child', lastChild);
             playerSide.removeChild(lastChild);
             playerSide = document.querySelector('.player-side');
             playerHand = document.querySelectorAll('.player-hand');
         };
         dealerHand = document.querySelectorAll('.dealer-hand');
         dealerSide = document.querySelector('.dealer-side');
-        console.log("dealer's hand", dealerHand, dealerHand.length);
         while(dealerHand.length > 2) {
             let lastChild = dealerSide.lastChild;
             console.log('last child dealer', lastChild);
@@ -136,8 +130,6 @@
             dealerSide = document.querySelector('.dealer-side');
             dealerHand = document.querySelectorAll('.dealer-hand');
         };
-        console.log("dealer's side", dealerSide);
-        console.log("player's side", playerSide);
         restartButton.replaceWith(playButton);
         buildDeck();
         card2Dealer.style.height = '';
@@ -162,7 +154,6 @@
         newCardImg.setAttribute('src', "card-images/" + newCard + ".svg");
         playerSide.append(newCardImg);
         playerHandArray.push(getValue(newCard));
-        console.log('new player hand array', playerHandArray);
         playerTotal += getValue(newCard);
         playerScore.textContent = "Player: " + playerTotal;
         playerHand = document.querySelectorAll('.player-hand');
