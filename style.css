@@ -14,10 +14,14 @@ h2 {
 .div-buttons {
     display: flex;
     justify-content: center;
+    box-shadow: -4px 4px black,
+                -8px 8px black;
 }
 
 .div-buttons button {
-    margin: 10px
+    margin: 10px;
+    box-shadow: -4px 4px black,
+                -8px 8px black;
 }
 
 .dealer-side {
